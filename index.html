@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <title>استمارة انضمام - Hackers</title>
+
+  <style>
+    body {
+      font-family: "Courier New", monospace;
+      background: #0d0d0d;
+      color: #00ff00;
+      direction: rtl;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #ff0000;
+      text-shadow: 0 0 10px #ff0000;
+    }
+    form {
+      max-width: 700px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(0,0,0,0.8);
+      border: 2px solid #00ff00;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ff00;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      color: #00ff00;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      background: #111;
+      border: 1px solid #00ff00;
+      color: #00ff00;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: black;
+      border: 2px solid #ff0000;
+      color: #ff0000;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background: #ff0000;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <h2>🔥 استمارة انضمام - Hackers 🔥</h2>
+
+  <form id="joinForm">
+    <label>الاسم الحقيقي: <input type="text" name="الاسم الحقيقي" required></label>
+    <label>اسم المستخدم/المجال: <input type="text" name="اسم المستخدم/المجال" required></label>
+    <label>العمر: <input type="number" name="العمر" required></label>
+    <label>الدولة: <input type="text" name="الدولة" required></label>
+    <label>ما هو هدفك في الانضمام للمجموعة:<textarea name="الهدف" required></textarea></label>
+    <label>رقم التواصل الرئيسي: <input type="text" name="رقم التواصل" required></label>
+    <label>رقم احتياطي للطوارئ: <input type="text" name="رقم احتياطي"></label>
+    <label>هل تملك حاسوبًا وإنترنت جيدًا؟
+      <select name="حاسوب+انترنت" required>
+        <option value="">اختر</option>
+        <option>نعم</option>
+        <option>لا</option>
+      </select>
+    </label>
+    <label>أي نظام تشغيل تستخدم؟
+      <select name="النظام" required>
+        <option>Windows</option>
+        <option>Linux</option>
+        <option>MacOS</option>
+        <option>أخرى</option>
+      </select>
+    </label>
+    <label>اللغات البرمجية التي تتقنها:<textarea name="اللغات"></textarea></label>
+    <label>ماذا يمكنك القيام به في المجال:<textarea name="المهارات"></textarea></label>
+    <label>هل تعرف استغلال الثغرات بشكل جيد؟
+      <select name="استغلال" required>
+        <option>نعم</option>
+        <option>لا</option>
+      </select>
+    </label>
+    <label>الثغرة XSS:
+      <select name="XSS">
+        <option>مبتدئ</option>
+        <option>متوسط</option>
+        <option>متقدم</option>
+      </select>
+    </label>
+    <label>الثغرة SQL Injection:
+      <select name="SQLi">
+        <option>مبتدئ</option>
+        <option>متوسط</option>
+        <option>متقدم</option>
+      </select>
+    </label>
+    <button type="submit">⚡ إرسال الاستمارة عبر WhatsApp ⚡</button>
+  </form>
+
+  <script>
+    document.getElementById('joinForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      
+      // جمع البيانات من النموذج
+      const formData = new FormData(this);
+      let formDataObject = {};
+      formData.forEach((value, key) => {
+        formDataObject[key] = value;
+      });
+
+      // بناء رسالة WhatsApp
+      const message = `
+        استمارة انضمام - Hackers:
+        الاسم الحقيقي: ${formDataObject["الاسم الحقيقي"]}
+        اسم المستخدم/المجال: ${formDataObject["اسم المستخدم/المجال"]}
+        العمر: ${formDataObject["العمر"]}
+        الدولة: ${formDataObject["الدولة"]}
+        الهدف: ${formDataObject["الهدف"]}
+        رقم التواصل: ${formDataObject["رقم التواصل"]}
+        رقم احتياطي: ${formDataObject["رقم احتياطي"] || "غير موجود"}
+        حاسوب + إنترنت: ${formDataObject["حاسوب+انترنت"]}
+        النظام: ${formDataObject["النظام"]}
+        اللغات البرمجية: ${formDataObject["اللغات"]}
+        المهارات: ${formDataObject["المهارات"]}
+        استغلال الثغرات: ${formDataObject["استغلال"]}
+        XSS: ${formDataObject["XSS"]}
+        SQL Injection: ${formDataObject["SQLi"]}
+      `;
+
+      // إرسال البيانات عبر رابط WhatsApp
+      const whatsappURL = `https://wa.me/+212627070443?text=${encodeURIComponent(message)}`;
+
+      // إعادة التوجيه إلى WhatsApp
+      window.open(whatsappURL, "_blank");
+    });
+  </script>
+</body>
+</html>
