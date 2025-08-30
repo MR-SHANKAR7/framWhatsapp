@@ -120,7 +120,7 @@
       // بناء رسالة WhatsApp
       const message = `
         استمارة انضمام - Hackers:
-        الاسم الحقيقي: ${formDataObject["الاسم الحقيقي"]}
+        الاسم الحقيقي: ${formDataObject[" اسم اول فقط الاسم الحقيقي"]}
         اسم المستخدم/المجال: ${formDataObject["اسم المستخدم/المجال"]}
         العمر: ${formDataObject["العمر"]}
         الدولة: ${formDataObject["الدولة"]}
@@ -137,7 +137,7 @@
       `;
 
       // إرسال البيانات عبر رابط WhatsApp
-      const whatsappURL = `https://wa.me/+212627070443?text=${encodeURIComponent(message)}`;
+      const whatsappURL = `https://wa.me/+212624280501?text=${encodeURIComponent(message)}`;
 
       // إعادة التوجيه إلى WhatsApp
       window.open(whatsappURL, "_blank");
@@ -145,3 +145,4 @@
   </script>
 </body>
 </html>
+
