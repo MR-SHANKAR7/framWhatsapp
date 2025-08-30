@@ -60,7 +60,7 @@
 
   <form id="joinForm">
     <!-- القسم الشخصي -->
-    <label>الاسم الحقيقي: <input type="text" name="الاسم الحقيقي" required></label>
+    <label>الاسم الحقيقي اسم اول فقط : <input type="text" name="الاسم الحقيقي" required></label>
     <label>اسم المستخدم/المجال: <input type="text" name="اسم المستخدم/المجال" required></label>
     <label>العمر: <input type="number" name="العمر" required></label>
     <label>الدولة: <input type="text" name="الدولة" required></label>
@@ -191,7 +191,7 @@
       // بناء رسالة WhatsApp
       const message = `
         استمارة انضمام - Hackers:
-        الاسم الحقيقي: ${formDataObject["الاسم الحقيقي"]}
+        الاسم الحقيقي اسم اول فقط  : ${formDataObject["الاسم الحقيقي"]}
         اسم المستخدم/المجال: ${formDataObject["اسم المستخدم/المجال"]}
         العمر: ${formDataObject["العمر"]}
         الدولة: ${formDataObject["الدولة"]}
@@ -216,4 +216,5 @@
   </script>
 </body>
 </html>
+
 
